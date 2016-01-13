@@ -1,0 +1,17 @@
+/* Some default styling so the preview function at least shows larger fonts / lists etc */
+.editor-preview h1 {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    margin: 16px 0px;
+}
+.editor-preview ul,
+.editor-preview ol
+ {
+    margin: 0 0 20px;
+    padding-left: 20px;
+    list-style: disc;
+}
+.editor-preview ol {
+    list-style: decimal;
+}
