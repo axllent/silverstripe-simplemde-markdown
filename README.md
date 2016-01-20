@@ -40,6 +40,33 @@ class MyMarkdownPage extends Page
 </div>
 ```
 
+### .htaccess:
+
+The JavaScript and CSS resources needed to show the editor is unfortunately installed in the `vendor` folder. By
+default, SilverStripe blocks all HTTP requests to it (note that we do not want to include the dependencies directly
+because we want Composer to handle those dependencies). In order to get this to work, we'll need to allow access to
+those resources.
+
+Add the following line:
+```
+        RewriteCond %{REQUEST_FILENAME} !\.(js|css)$   
+```
+above this line:
+```
+        RewriteRule ^vendor(/|$) - [F,L,NC]
+```
+So that the `.htaccess` file would look similar to the following:
+```
+...
+        # Deny access to potentially sensitive files and folders
+        RewriteCond %{REQUEST_FILENAME} !\.(js|css)$   
+        RewriteRule ^vendor(/|$) - [F,L,NC]
+
+        RewriteRule silverstripe-cache(/|$) - [F,L,NC]
+        RewriteRule composer\.(json|lock) - [F,L,NC]
+...
+```
+
 ## Editor limitations:
 SimpleMDE has some nice features such as full-page editing/preview, as well as "Side by Side" editing
 [see demo](http://nextstepwebs.github.io/simplemde-markdown-editor/). Unfortunately this doesn't play nice with
