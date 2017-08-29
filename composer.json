@@ -15,7 +15,6 @@
 		"issues": "https://github.com/axllent/silverstripe-simplemde-markdown/issues"
 	},
 	"require": {
-		"silverstripe/cms": "3.*",
 		"erusev/parsedown": "*",
 		"etdsolutions/simplemde-markdown-editor": "*"
 	}
