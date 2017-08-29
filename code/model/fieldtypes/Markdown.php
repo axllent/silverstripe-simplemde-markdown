@@ -2,14 +2,12 @@
 
 class Markdown extends Text
 {
-
-    public static $casting=array(
+    public static $casting = array(
         'AsHTML'=>'HTMLText',
         'Markdown'=>'Text'
     );
 
-
-    public static $escape_type='xml';
+    public static $escape_type = 'xml';
 
     /**
      * @return {string} Markdown rendered as HTML
